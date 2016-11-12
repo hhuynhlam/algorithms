@@ -1,0 +1,12 @@
+{
+  "name": "algorithmic-toolbox",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {},
+  "author": "",
+  "devDependencies": {
+    "eslint": "^3.10.0",
+    "eslint-config-airbnb-base": "^10.0.1",
+    "eslint-plugin-import": "^1.16.0"
+  }
+}

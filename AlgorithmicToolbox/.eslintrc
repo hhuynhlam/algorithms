@@ -1,7 +1,12 @@
 {
   "extends": "airbnb-base/legacy",
+
   "globals": {
     "document": true,
     "window": true
+  },
+
+  "rules": {
+    "no-param-reassign": ["off"]
   }
 }

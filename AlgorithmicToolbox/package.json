@@ -2,11 +2,19 @@
   "name": "algorithmic-toolbox",
   "version": "1.0.0",
   "description": "",
-  "scripts": {},
+  "scripts": {
+    "test": "jasmine",
+    "test-debug": "node debug ./node_modules/jasmine/bin/jasmine"
+  },
   "author": "",
   "devDependencies": {
-    "eslint": "^3.10.0",
-    "eslint-config-airbnb-base": "^10.0.1",
-    "eslint-plugin-import": "^1.16.0"
+    "eslint": "^4.13.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jasmine": "^2.9.1",
+    "jasmine": "^2.8.0"
+  },
+  "engines": {
+    "node": "6.10.0"
   }
 }

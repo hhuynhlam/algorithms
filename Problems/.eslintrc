@@ -10,6 +10,13 @@
   },
 
   "rules": {
+    "comma-dangle": ["error", {
+      "arrays": "always",
+      "objects": "always",
+      "imports": "always",
+      "exports": "always",
+      "functions": "ignore"
+    }],
     "no-console": ["off"],
     "no-param-reassign": ["off"]
   }

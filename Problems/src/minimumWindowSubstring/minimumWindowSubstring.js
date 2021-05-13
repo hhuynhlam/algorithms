@@ -15,55 +15,55 @@
  * be only one unique minimum window in S.
  */
 
-function minimumWindowSubstring(input, pattern) {
-  let minimum;
+function minWindow(input, pattern) {
+  const lookupTable = createLookupTable(pattern)
 
-  const dictionary =
-    pattern.split('').reduce((result, p) => {
-      if (result[p]) {
-        result[p] += 1;
-      } else {
-        result[p] = 1;
-      }
+  let minimum = ''
+  let missingCharSets = Object.keys(lookupTable).length
+  let head = 0
+  let tail = 0
 
-      return result;
-    }, {});
+  for (let head = 0; head < input.length; head += 1) {
+    if (lookupTable[input[head]] != null) {
+      lookupTable[input[head]] -= 1
 
-  let foundMatches = 0;
-  let head = 0;
-  let tail = 0;
-
-  while (head < input.length) {
-    if (dictionary[input[head]] || dictionary[input[head]] === 0) {
-      dictionary[input[head]] -= 1;
-
-      if (dictionary[input[head]] === 0) {
-        foundMatches += 1;
+      if (lookupTable[input[head]] === 0) {
+        missingCharSets -= 1
       }
     }
 
-    while (foundMatches === Object.keys(dictionary).length) {
-      const matchedWindow = input.slice(tail, head + 1);
+    while (!missingCharSets) {
+      if (lookupTable[input[tail]] != null) {
+        const wndw = input.slice(tail, head + 1)
 
-      if (!minimum || minimum.length > matchedWindow.length) {
-        minimum = matchedWindow;
-      }
+        if (!minimum || wndw.length < minimum.length) {
+          minimum = wndw
+        }
 
-      if (dictionary[input[tail]] || dictionary[input[tail]] === 0) {
-        dictionary[input[tail]] += 1;
+        lookupTable[input[tail]] += 1
 
-        if (dictionary[input[tail]] > 0) {
-          foundMatches -= 1;
+        if (lookupTable[input[tail]] && lookupTable[input[tail]] > 0) {
+          missingCharSets += 1
         }
       }
 
-      tail += 1;
+      tail++
     }
-
-    head += 1;
   }
 
-  return minimum || '';
+  return minimum
 }
 
-module.exports = minimumWindowSubstring;
+function createLookupTable(pattern = '') {
+  return pattern.split('').reduce((result, p) => {
+    if (result[p]) {
+      result[p] += 1;
+    } else {
+      result[p] = 1;
+    }
+
+    return result;
+  }, {});
+}
+
+module.exports = minWindow;

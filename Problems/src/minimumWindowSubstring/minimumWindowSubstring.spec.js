@@ -1,23 +1,23 @@
-const minimumWindowSubstring = require('./minimumWindowSubstring');
+const minWindow = require('./minimumWindowSubstring');
 
-describe('#minimumWindowSubstring', () => {
-  it('Case 1', () => {
-    expect(minimumWindowSubstring('adobecodebanc', 'abc'))
+describe('#minWindow', () => {
+  it('TestlCases', () => {
+    expect(minWindow('adobecodebanc', 'abc'))
       .toEqual('banc');
-  });
 
-  it('Case 2', () => {
-    expect(minimumWindowSubstring('adobecodebanc', 'z'))
+    expect(minWindow('adobecodebanc', 'z'))
       .toEqual('');
-  });
 
-  it('Case 3', () => {
-    expect(minimumWindowSubstring('a', 'a'))
+    expect(minWindow('a', 'a'))
       .toEqual('a');
-  });
 
-  it('Case 4', () => {
-    expect(minimumWindowSubstring('aa', 'aa'))
+    expect(minWindow('aa', 'aa'))
       .toEqual('aa');
+
+    expect(minWindow('abc', 'b'))
+      .toEqual('b');
+
+    expect(minWindow('aaaaaaaaaaaabbbbbcdd', 'abcdd'))
+      .toEqual('abbbbbcdd');
   });
 });

@@ -33,7 +33,7 @@
   Explanation: You have to take all the cards. Your score is the sum of points
   of all cards.
 
- Example 4:
+  Example 4:
 
   Input: cardPoints = [1,1000,1], k = 1
   Output: 1
